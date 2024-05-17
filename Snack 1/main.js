@@ -8,7 +8,7 @@ const bici = [
     },
     {
         nome: 'Bici 2',
-        peso: 20
+        peso: 8
     },
     {
         nome: 'Bici 3',
@@ -16,7 +16,7 @@ const bici = [
     },
     {
         nome: 'Bici 4',
-        peso: 20
+        peso: 7
     },
     {
         nome: 'Bici 5',
@@ -24,33 +24,33 @@ const bici = [
     },
     {
         nome: 'Bici 6',
-        peso: 10
+        peso: 15
     }
 ];
 
-//dicchiarazione della variabile 'più pesante' che come 
+//dicchiarazione della variabile 'più leggera' che come 
 //valore ha il risultato della funzione compare()
 
-const heavier = compare(bici);
+const lighter = compare(bici);
 
 //log del risultato
-console.log(heavier);
+console.log(lighter);
 
 function compare(object){
     //variabili di appoggio
-    let heavier = 0;
-    let bikeName = '';
+    let light = object[0].peso;
+    let bikeName = object[0].nome;
 
     for(let i = 0; i < object.length; i++){
         //if auto esplicativo credo
-        if(object[i].peso > heavier){
+        if(object[i].peso < light){
             //cambio della 'guardia'
-            heavier = object[i].peso;
+            light = object[i].peso;
             bikeName = object[i].nome;
         }
     }
 
     //grazie all'interpolazione in return ho direttamente 
     //la stringa già pronta per il console log
-    return `${bikeName}: ${heavier} kg`;
+    return `${bikeName}: ${light} kg`;
 }
